@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useCartStore } from '@/public/lib/store';
@@ -57,7 +58,7 @@ export default function CartPage() {
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Your Cart is Empty</h2>
             <p className="text-gray-600 mb-8">
-              Looks like you haven't added any items to your cart yet. Start shopping to find your perfect fragrance!
+              Looks like you haven&rsquo;t added any items to your cart yet. Start shopping to find your perfect fragrance!
             </p>
             <Link
               href="/products"
@@ -96,10 +97,13 @@ export default function CartPage() {
                 {items.map((item) => (
                   <div key={item.perfume.id} className="p-6 flex items-center space-x-4">
                     <div className="flex-shrink-0">
-                      <img
+                      <Image
                         src={item.perfume.image}
                         alt={item.perfume.name}
-                        className="w-20 h-20 object-cover object-top rounded-lg"
+                        width={80}
+                        height={80}
+                        unoptimized
+                        className="object-cover object-top rounded-lg"
                       />
                     </div>
                     
